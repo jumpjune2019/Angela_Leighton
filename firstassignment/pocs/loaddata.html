@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON and AJAX</title>
+
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+			
+		//sets a variable equal to a new HTTP request
+		var myRequest = new XMLHttpRequest();
+
+		//get the file
+		myRequest.open("GET", "terms.json", true);
+
+		myRequest.onload = function(){
+			var termData = JSON.parse(myRequest.responseText);
+			console.log(termData.data[0].definition);
+		}
+
+		//send the request
+		myRequest.send();
+	</script>
+</body>
+</html>

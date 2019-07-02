@@ -1,0 +1,128 @@
+{
+	"data": [
+	{
+		"id": "1",
+		"term" : "algorithm",
+		"definition" : "A set of rules for solving a problem in a given number of steps."
+	},
+	{
+		"id": "2",
+		"term" : "argument",
+		"definition" : "A value supplied to a procedure, macro, subroutine, or command that is required in order to evaluate that procedure, macro, subroutine, or command. Synonymous with parameter."
+	},
+	{
+		"id": "3",
+		"term" : "bit",
+		"definition" : "A binary digit, either a 0 or 1. In the U. S. , 8 bits make up one byte; in Europe, byte equals one word."
+	},
+	{
+		"id": "4",
+		"term" : "booting",
+		"definition" : "Turning on your computer."
+	},
+	{
+		"id": "5",
+		"term" : "browser",
+		"definition" : "A software tool used to read electronic documents. Mosaic, NetScape and Lynx are the most popular browsers."
+	},
+	{
+		"id": "6",
+		"term" : "buffer",
+		"definition" : "dA temporary memory for data, normally used to accommodate the difference in the rate at which two devices can handle data during a transfer."
+	},
+	{
+		"id": "7",
+		"term" : "byte",
+		"definition" : "A group of adjacent binary digits, usually 8, on which a computer operates as a unit; often used to represent a single character. (See bit. )"
+	},
+	{
+		"id": "8",
+		"term" : "client/server",
+		"definition" : "A relationship in which client software obtains services from a server on behalf of a person"
+	},
+	{
+		"id": "9",
+		"term" : "compiler",
+		"definition" : "A program that translates human-readable programs into a form the computer understands. The input (source code) to the compiler is a description of an algorithm in a problem- oriented language; its output (object code) is an equivalent description of the algorithm in a machine-oriented language."
+	},
+	{
+		"id": "10",
+		"term" : "CPU",
+		"definition" : "Central Processing Unit. The main internal component of a computer where executions of instructions are carried out and calculations are performed."
+	},
+	{
+		"id": "11",
+		"term" : "data",
+		"definition" : "Information suitable for communication, interpretation or processing by a computer."
+	},
+	{
+		"id": "12",
+		"term" : "DBMS",
+		"definition" : "DataBase Management System"
+	},
+	{
+		"id": "13",
+		"term" : "debug",
+		"definition" : "To detect, trace and eliminate errors in computer programs."
+	},
+	{
+		"id": "14",
+		"term" : "download",
+		"definition" : "The transfer of information from a remote computer system to the users system. Opposite of upload."
+	},
+	{
+		"id": "15",
+		"term" : "encapsulation",
+		"definition" : "Combining or defining a data structure of attributes and a group of associated functions and behaviors as a single object."
+	},
+	{
+		"id": "16",
+		"term" : "font",
+		"definition" : "A set of consistent size, shape or style of printer characters, including alphabetic and numeric characters and other signs and symbols."
+	},
+	{
+		"id": "17",
+		"term" : "FTP",
+		"definition" : "File Transfer Protocol. A program that allows for file transfers over the Internet."
+	},
+	{
+		"id": "18",
+		"term" : "GIF",
+		"definition" : "Graphic Interchange Format. Compuserves non-platform specific format for low-resolution, compressed graphics interchange."
+	},
+	{
+		"id": "19",
+		"term" : "host",
+		"definition" : "A computer that is made available for use by multiple people simultaneously"
+	},
+	{
+		"id": "20",
+		"term" : "HTML",
+		"definition" : "Hypertext Markup Language. A convention of codes used to access documents over the World-Wide Web. Without HTML codes, a document would be unreadable by a Web browser."
+	},
+	{
+		"id": "21",
+		"term" : "HTTP",
+		"definition" : "HyperText Transfer Protocol. Extremely fast protocol used for network file transfers in the WWW environment."
+	},
+	{
+		"id": "22",
+		"term" : "IP Address",
+		"definition" : "The numeric address of a computer connected to the Internet; also called Internet address."
+	},
+	{
+		"id": "23",
+		"term" : "link",
+		"definition" : "A form of markup which designates that data within a document will automatically connect with either nested data or an outside source. Used in the design of hypertext."
+	},
+	{
+		"id": "24",
+		"term" : "parameter",
+		"definition" : "A variable, or quantity that can assume any of a given set of values, of which there are two kinds: formal and actual. (See argument.)"
+	},
+	{
+		"id": "25",
+		"term" : "SQL",
+		"definition" : "Structured Query Language. ANSI standard data manipulation language used in most relational data base systems. A language for requesting data from a relational database."
+	}
+]}

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.dropme {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+	function allowDrop(ev) {
+	  ev.preventDefault();
+	}
+
+	function drag(ev) {
+	  ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function drop(ev) {
+	  ev.preventDefault();
+	  var data = ev.dataTransfer.getData("text");
+	  ev.target.appendChild(document.getElementById(data));
+	}
+</script>
+</head>
+<body>
+	<div id="div1" class="dropme" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<div id="div2" class="dropme" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<div id="div3" class="dropme" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<div id="div4" class="dropme" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<div id="div5" class="dropme" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<br>
+	<div id="drag1" draggable="true" ondragstart="drag(event)" width="336" height="69">Term 1</div>
+	<div id="drag2" draggable="true" ondragstart="drag(event)" width="336" height="69">Term 2</div>
+	<div id="drag3" draggable="true" ondragstart="drag(event)" width="336" height="69">Term 3</div>
+	<div id="drag4" draggable="true" ondragstart="drag(event)" width="336" height="69">Term 4</div>
+	<div id="drag5" draggable="true" ondragstart="drag(event)" width="336" height="69">Term 5</div>
+</body>
+</html>

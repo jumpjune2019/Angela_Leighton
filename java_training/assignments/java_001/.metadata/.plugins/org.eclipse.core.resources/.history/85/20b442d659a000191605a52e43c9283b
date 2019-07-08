@@ -1,0 +1,128 @@
+
+import java.util.*;
+
+public class StringArrayUtilities {
+
+	public static void main(String[] args) {
+		String myList[] = new String[] {"Bozo", "FooBar", "Delta", "Foozball", "Demo", "Money","Zoo"};
+		
+		//Report header
+		System.out.println("This is the a test of the arrayHasExactMatch and indexOfOccurenceInArray methods");
+		System.out.println("The array to test contains the following items: ");
+		System.out.println("{\"Bozo\", \"FooBar\", \"Delta\", \"Foozball\", \"Demo\", \"Money\", \"Zoo\"}");
+		
+		//test these cases
+		System.out.println("Scenario 1");
+		System.out.print("arrayHasExactMatch(myList, \"zo\", false): is "); 
+		System.out.println(arrayHasExactMatch(myList, "zo", false));
+		
+		System.out.println("\nScenario 2");
+		System.out.print("arrayHasExactMatch (myList, \"zoo\", false): is "); 
+		System.out.println(arrayHasExactMatch (myList, "zoo", false));
+		
+		System.out.println("\nScenario 3");
+		System.out.print("arrayHasExactMatch (myList, \"zoo\", true): is ");
+		System.out.println(arrayHasExactMatch (myList, "zoo", true));
+		
+		System.out.println("\nScenario 4");
+		System.out.print("arrayHasExactMatch (myList, \"foo\", true): is "); 
+		System.out.println(arrayHasExactMatch (myList, "foo", true));
+		
+		System.out.println("\nScenario 5");
+		System.out.print("arrayHasExactMatch (myList, \"foo\", false): is "); 
+		System.out.println(arrayHasExactMatch (myList, "foo", false));
+		
+		System.out.println("\nScenario 6");
+		System.out.print("arrayHasExactMatch (myList, \"delta\", true): is "); 
+		System.out.println(arrayHasExactMatch (myList, "delta", true));
+		
+		System.out.println("\nScenario 7");
+		System.out.print("arrayHasExactMatch (myList, \"Delta\", true): is "); 
+		System.out.println(arrayHasExactMatch (myList, "Delta", true));
+		
+		//test these cases
+		/*System.out.println("Scenario 8");
+		indexOfOccuranceInArray (myList, "zo", false);
+		
+		System.out.println("Scenario 9");
+		indexOfOccuranceInArray (myList, "zoo", false);
+		
+		System.out.println("Scenario 10");
+		indexOfOccuranceInArray (myList, "zoo", true);
+		
+		System.out.println("Scenario 11");
+		indexOfOccuranceInArray (myList, "foo", true);
+		
+		System.out.println("Scenario 12");
+		indexOfOccuranceInArray (myList, "foo", false);
+		
+		System.out.println("Scenario 13");
+		indexOfOccuranceInArray (myList, "delta", true);
+		
+		System.out.println("Scenario 14");
+		indexOfOccuranceInArray (myList, "Delta", true); */
+	}
+
+	static boolean arrayHasExactMatch(String[] arr, String match, boolean caseSen) {
+		
+		//if the match is case sensitive
+		if (caseSen) {
+			//loop thru the array
+			for(int x=0;x<arr.length;x++) {
+				//if there's a match return true
+				if (arr[x] == match) {
+					return true;
+				}
+			}
+		//if the match is not case sensitive
+		}else {
+			//loop thru the array
+			for(int x=0;x<arr.length;x++) {
+				//if there's a match return true
+//				if (arr[x].toLowerCase() == match.toLowerCase()) {
+				if (arr[x].equalsIgnoreCase((match))) {
+					return true;
+				}
+			}
+		}
+		
+		//if there is not a match return false
+		return false;
+		
+	}
+	
+	 static int[] indexOfOccuranceInArray(String[] arr, String match, boolean caseSen) {
+		
+		 //declare arrayList to return
+		 ArrayList<int> matches = new ArrayList<int>();
+		 
+	 	//if the match is case sensitive
+		if (caseSen) {
+			//loop thru the array
+			for(int x=0;x<arr.length;x++) {
+				//if there's a match add index to matches
+				if (arr[x] == match) {
+					matches.add(x);
+				}
+			}
+		//if the match is not case sensitive
+		}else {
+			//loop thru the array
+			for(int x=0;x<arr.length;x++) {
+				//if there's a match add index to matches
+				if (arr[x].toLowerCase() == match.toLowerCase()) {
+					matches.add(x);
+				}
+			}
+		}
+		
+		//if there are no matches return -1
+		if (matches.isEmpty()) {
+			matches.add(-1);
+		}
+		
+		//return the array of indexes
+		return matches.toArray();
+		
+	 }	
+}

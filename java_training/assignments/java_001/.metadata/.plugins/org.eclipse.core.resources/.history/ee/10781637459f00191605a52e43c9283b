@@ -1,0 +1,14 @@
+
+public class GameOfDice {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to the dice throw challenge!");
+		System.out.println("Do you feel lucky? \"Punk\"...Do ya?");
+		System.out.print("Press any key and ENTER to throw your dice or ");
+		System.out.println("(Q or q) to chicken your butt off...");
+		
+		
+
+	}
+
+}

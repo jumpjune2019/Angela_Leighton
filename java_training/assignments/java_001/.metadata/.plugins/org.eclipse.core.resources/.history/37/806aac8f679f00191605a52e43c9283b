@@ -1,0 +1,41 @@
+
+public class StringArrayUtilities {
+
+	public static void main(String[] args) {
+		String myList[] = new String[] {“Bozo”, “FooBar”, “Delta”, “Foozball”, “Demo”, “Money”,“Zoo”};
+		
+		//test these cases
+		arrayHasExactMatch (myList, "zo", false);
+		/* arrayHasExactMatch (myList, "zoo", false);
+		arrayHasExactMatch (myList, "zoo", true);
+		arrayHasExactMatch (myList, "foo", true);
+		arrayHasExactMatch (myList, "foo", false);
+		arrayHasExactMatch (myList, "delta", true);
+		arrayHasExactMatch (myList, "Delta", true);
+		
+		//test these cases
+		indexOfOccuranceInArray (myList, "zo", false);
+		indexOfOccuranceInArray (myList, "zoo", false);
+		indexOfOccuranceInArray (myList, "zoo", true);
+		indexOfOccuranceInArray (myList, "foo", true);
+		indexOfOccuranceInArray (myList, "foo", false);
+		indexOfOccuranceInArray (myList, "delta", true);
+		indexOfOccuranceInArray (myList, "Delta", true); */
+		
+		
+	}
+
+	boolean arrayHasExactMatch(String[] arr, String match, boolean caseSen) {
+		
+		
+		return false;
+		
+	}
+	
+	 int[] indexOfOccuranceInArray(String[] arr, String s, boolean caseSen) {
+		
+		 
+		 return null;
+		 
+	 }
+}

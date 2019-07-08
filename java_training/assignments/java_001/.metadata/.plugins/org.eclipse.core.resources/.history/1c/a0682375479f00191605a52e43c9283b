@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class GameOfDice {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to the dice throw challenge!");
+		System.out.println("Do you feel lucky? \"Punk\"...Do ya?");
+		System.out.print("Press any key and ENTER to throw your dice or ");
+		System.out.println("(Q or q) to chicken your butt off...");
+
+		// Create a Scanner object
+		Scanner myObj = new Scanner(System.in); 
+		
+		//read user input
+		String userInput = myObj.next();
+		
+		if (userInput.toUpperCase().charAt(0) == 'Q') {
+			//close scanner
+			myObj.close();
+			
+			System.out.println("See ya later alligator!");
+			
+			//if q or Q then quit game
+			return;
+		}
+		
+		//roll the die if the user doesn't quit
+		do {
+			System.out.println("Rolling the dice...");
+			
+			//tell user what he or she rolled
+			System.out.println("You have rolled the following: ");
+			System.out.println("First die: " + dieRoll());
+			System.out.println("Second die: " + dieRoll());
+		
+			//ask user if he or she would like to roll again
+			System.out.print("Play again? (Y or y) and Enter, ");
+			System.out.println("any other key and Enter to Quit");
+			
+			//get user input
+			userInput = myObj.next();
+			
+		//continue to roll the die while the user says yes
+		} while (userInput.toUpperCase().charAt(0) == 'Y');
+		
+		//close scanner
+		myObj.close();
+		System.out.println("Thanks for being a sport! Laters!")
+		return;
+	}
+	
+	static int dieRoll() {
+		
+		//get a random number between 1 and 6 inclusive
+		int roll = (int)(Math.random() * 6) + 1;
+		
+		//return random number
+		return roll;
+	}
+}

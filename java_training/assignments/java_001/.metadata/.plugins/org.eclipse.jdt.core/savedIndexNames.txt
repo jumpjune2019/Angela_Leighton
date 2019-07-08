@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+/Users/angela/JumpJune2019/java_training/assignments/java_001/.metadata/.plugins/org.eclipse.jdt.core
+914595108.index
+586008997.index
+855709060.index
+603509956.index
+2723969535.index
+224660176.index
+3436727285.index
+4154263650.index
+1392080472.index

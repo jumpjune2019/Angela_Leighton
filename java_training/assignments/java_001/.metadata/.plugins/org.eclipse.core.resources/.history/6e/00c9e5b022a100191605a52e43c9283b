@@ -1,0 +1,24 @@
+
+public class DicePairStats {
+
+	public static void main(String[] args) {
+		
+		//roll the die if the user doesn't quit
+		for (int x=0;x<1000;x++){
+			//tell user what he or she rolled
+			System.out.println("You have rolled the following: ");
+			System.out.println("First die: " + dieRoll());
+			System.out.println("Second die: " + dieRoll());
+		} 
+	}
+	
+	static int dieRoll() {
+		
+		//get a random number between 1 and 6 inclusive
+		int roll = (int)(Math.random() * 6) + 1;
+		
+		//return random number
+		return roll;
+	}
+
+}

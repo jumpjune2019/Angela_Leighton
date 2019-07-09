@@ -2,6 +2,7 @@ package matrixcustomhandlers;
 import java.util.Scanner;  // Import the Scanner class
 import java.io.*; //Import the Input/Output
 
+
 public class MatrixCustomHandlers {
 
 	public static void main(String[] args) {
@@ -46,8 +47,6 @@ public class MatrixCustomHandlers {
 		diceLabels[5][4] = "Yo";
 		diceLabels[5][5] = "Midnight";	
 		
-		
-		//ask user if he or she wants to roll a di
 
 		// Create a Scanner object
 		Scanner myObj = new Scanner(System.in);  
@@ -56,37 +55,72 @@ public class MatrixCustomHandlers {
 		System.out.println("Press 2 to print matrix to file");
 		System.out.println("Press 3 to print matrix to screen and file");
 		
-		try {
-			//read user input
-			String userInput = myObj.nextLine();
+		//read user input
+		String userInput = "";
+		boolean exitLoop = false;
 		
-			//if user chooses 1
-			if (userInput.charAt(0) == '1') {
-				//Print dice labels to screen
-				printDiceLabels(diceLabels);
-			}
+		
+		do {
+			try {
+				userInput = myObj.nextLine();
 			
-			//if user chooses 2
-			if (userInput.charAt(0) == '2') {
-				//Print dice labels to file
-				printDiceLabelsToFile(diceLabels);
-			}
-			
-			//if user chooses 3
-			if (userInput.charAt(0) == '3') {
-				//Print dice labels to screen
-				printDiceLabels(diceLabels);
+				//if user chooses 1
+				if (userInput.charAt(0) == '1') {
+					//Print dice labels to screen
+					printDiceLabels(diceLabels);
+					exitLoop = true;
+				}
 				
-				//Print dice labels to file
-				printDiceLabelsToFile(diceLabels);
+				//if user chooses 2
+				else if (userInput.charAt(0) == '2') {
+					//Print dice labels to file
+					printDiceLabelsToFile(diceLabels);
+					exitLoop = true;
+				}
+				
+				//if user chooses 3
+				else if (userInput.charAt(0) == '3') {
+					//Print dice labels to screen
+					printDiceLabels(diceLabels);
+					
+					//Print dice labels to file
+					printDiceLabelsToFile(diceLabels);
+					exitLoop = true;
+				}
+				
+				else {
+					throw new UserInputException("User input is incorrect.  Please try again.");
+				}
 			}
-
-		}
-		catch(Exception e) {
+			catch(UserInputException e) {
+				System.out.println(e);
+			}
 			
+		}
+		while(!exitLoop);		
+
+		System.out.println("Enter a number between 1 and 6: ");
+		int number = myObj.nextInt();
+		
+		try {
+			if (!checkNumber(number)) {
+				throw new InvalidInputException("Input is not valid!");
+			}
+		}
+		catch (InvalidInputException e) {
+			System.out.println(e);
 		}
 		
 		myObj.close();
+	}
+	
+	static boolean checkNumber(int number) throws InvalidInputException {
+		
+		if ((number >= 1) & (number < 7)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	static void printDiceLabelsToFile(String[][] diceLabels) {
@@ -96,9 +130,9 @@ public class MatrixCustomHandlers {
 	         
 	        //print the header
 	 		out.write("Dice Combinations Label Matrix\n");
-	 		out.write("\tDie 1 \t\t\tDie 2 \t\t\tDie 3 \t\t\tDie 4 \t\t\tDie 5 \t");
+	 		out.write("\tDie 1\t\t\tDie 2\t\t\tDie 3\t\t\tDie 4\t\t\tDie 5\t");
 	 		out.write("\t\tDie 6");
-	 		
+	 	
 	 		//print line 1
 	 		out.write("\nDie 1 \t" + diceLabels[0][0] + "\t\t" + diceLabels[0][1] + "\t"); 
 	 		out.write(diceLabels[0][2] + "\t\t" + diceLabels[0][3] + "\t\t" + diceLabels[0][4]); 
@@ -115,7 +149,7 @@ public class MatrixCustomHandlers {
 	 		out.write("\t\t" + diceLabels[2][5]);
 			
 			//print line 4
-	 		out.write("\nDie 4 \t" + diceLabels[3][0] + "\t\t" + diceLabels[3][1] + "\t\t"); 
+	 		out.write("\n Die 4 \t" + diceLabels[3][0] + "\t\t" + diceLabels[3][1] + "\t\t"); 
 	 		out.write(diceLabels[3][2] + "\t\t\t" + diceLabels[3][3] + "\t\t" + diceLabels[3][4]); 
 	 		out.write("\t\t" + diceLabels[3][5]);
 			
@@ -133,8 +167,8 @@ public class MatrixCustomHandlers {
 	         System.out.println("File created successfully");
 	      }
 	      catch (IOException e) {
+	    	  
 	      }
-		
 	}
 	
 	static void printDiceLabels(String[][] diceLabels) {

@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Compare {
 	
@@ -8,7 +9,7 @@ public class Compare {
 		
 		boolean areFilesIdentical = true;
 		File file1 = new File("/Users/angela/JumpJune2019/java_training/assignments/java_003/compare/file1.rtf");
-		File file2 = new File("/Users/angela/JumpJune2019/java_training/assignments/java_003/compare/file2.rtf");
+		File file2 = new File("/Users/angela/JumpJune2019/java_training/assignments/java_003/compare/file3.rtf");
 	    
 		
 		//if 1 of the files do not exist exit 
@@ -16,11 +17,8 @@ public class Compare {
 	      System.out.println("One or both files do not exist");
 	      return;
 	    }
-		
-		//Output the file lengths
-//		System.out.println("file 1 length:" + file1.length());
-//		System.out.println("file 2 length:" + file2.length());
 	    
+		//compare file lengths
 		if (file1.length() != file2.length()) {
 	      areFilesIdentical = false;
 	    }
@@ -28,22 +26,18 @@ public class Compare {
 	    try {
 	        FileInputStream fis1 = new FileInputStream(file1);
 	        FileInputStream fis2 = new FileInputStream(file2);
+	        byte[] fileb1 = new byte[(int) file1.length()];
+	        byte[] fileb2 = new byte[(int) file2.length()];
 	        
-	        int i1 = fis1.read();
-	        int i2 = fis2.read();
+	        //read file
+	        fis1.read(fileb1);
+	        fis2.read(fileb2);
 	        
-	        while (i1 != -1) {
-	          if (i1 != i2) {
-	            areFilesIdentical = false;
-	            break;
-	          }
-	          i1 = fis1.read();
-	          i2 = fis2.read();
-	        }
-	        
+	        //print report
 	        System.out.println("Output: file 1 and file 2:");
 	        System.out.print("Result: ");
-	        if (areFilesIdentical) {
+	        
+	        if(Arrays.equals(fileb1, fileb2)) {
 	        	System.out.println("identical content");
 	        	System.out.println("character length for both: " + file1.length());
 	        } else {
@@ -52,6 +46,7 @@ public class Compare {
 	        	System.out.println("character length for file 2: " + file2.length());
 	        }
 	       
+	        //close resources
 	        fis1.close();
 	        fis2.close();
 	        

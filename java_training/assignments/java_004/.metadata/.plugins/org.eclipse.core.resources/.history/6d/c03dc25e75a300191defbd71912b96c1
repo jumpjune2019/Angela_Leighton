@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class ThreadOne {
+
+	public static void main(String[] args) {
+		
+		MyThread mt1 = new MyThread("Thread One");
+		
+		System.out.println("Enter P to PAUSE thread");
+		System.out.println("Enter S to STOP thread");
+		
+		Scanner userInput = new Scanner(System.in);
+		String control = "";
+		
+		do 
+		{
+			control = userInput.nextLine();
+		
+			if (control.equalsIgnoreCase("P")) {
+				pauseThread(mt1);
+			}
+			
+			if (control.equalsIgnoreCase("S")) {
+				stopThread(mt1);
+			}
+		}
+		while(mt1.thrd.isAlive());
+		
+		//release resources
+		userInput.close();
+	}
+	
+	static void stopThread(MyThread myThread) {
+		
+		//Stop thread
+		myThread.mystop();
+
+	}
+	
+	static void pauseThread(MyThread myThread) {
+
+		//Suspend thread
+		myThread.mysuspend();
+	}
+}

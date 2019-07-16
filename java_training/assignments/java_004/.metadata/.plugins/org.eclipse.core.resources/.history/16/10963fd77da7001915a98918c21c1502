@@ -1,0 +1,49 @@
+package trafficlight;
+
+class MyThread implements Runnable {
+
+	Thread thrd;
+	boolean suspended;
+	boolean stopped;
+	String name;
+	String label;
+	int wait;
+	
+	// Construct a new thread.
+	MyThread(TrafficLight light) {
+		
+		this.name = light.name();
+		this.label = light.getLabel();
+		this.wait = light.getTime();
+		
+	}
+	
+	// Begin execution of new thread
+	public void run() {
+		System.out.println(this.label);		
+		try {
+			while (!stopped) {
+				Thread.sleep(this.wait);
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	//stop the thread
+	synchronized void mystop() {
+		stopped = true;
+		notify();
+	}
+	
+	//suspend the thread
+	synchronized void mysuspend() {
+		suspended = true;	
+	}
+	
+	//resume the thread
+	synchronized void myresume() {
+		suspended = false;
+		notify();
+	}
+}

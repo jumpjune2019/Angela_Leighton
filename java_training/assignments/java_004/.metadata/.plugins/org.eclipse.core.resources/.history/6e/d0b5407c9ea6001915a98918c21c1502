@@ -1,0 +1,52 @@
+package trafficlight;
+
+import java.util.Scanner;
+
+public class MainLight {
+
+	public static char getInput() {
+		char input = ' ';
+		Scanner br = new Scanner(System.in);
+		input = (char) br.nextInt();
+		br.close();
+		return input;
+	}
+	
+	public static boolean dealWithInput(char ch) {
+    	if(ch == ' ') {
+    		return true;
+    	} else {
+    		return false;
+    	}	
+	}
+
+	public static void main(String[] args) {
+		
+		boolean stopLight = false;
+		char input = 'R';
+		
+		System.out.println("Traffic Light Simulator is a Go!");
+		
+		do {
+			//run stop light
+			runStopLight();
+			
+			input = getInput();
+			stopLight = dealWithInput(input);
+			
+		//stop when user presses enter
+		}while (stopLight == false);
+		
+		//tell user the light has stopped
+		System.out.println("Traffic Light Simulator is Done!");
+
+	}
+	
+	static void runStopLight() {
+		//initialize light threads
+		MyThread Green = MyThread(TrafficLight.GREEN);
+		MyThread Yellow = MyThread(TrafficLight.YELLOW);
+		MyThread Red = MyThread(TrafficLight.RED);
+		
+	}
+}

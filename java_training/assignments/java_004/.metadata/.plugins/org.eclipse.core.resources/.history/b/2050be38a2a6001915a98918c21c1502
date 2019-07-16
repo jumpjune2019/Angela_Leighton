@@ -1,0 +1,82 @@
+package trafficlight;
+
+import java.util.Scanner;
+
+public class MainLight {
+
+	//initialize light threads
+	static MyThread Green = new MyThread(TrafficLight.GREEN);
+	static MyThread Yellow = new MyThread(TrafficLight.YELLOW);
+	static MyThread Red = new MyThread(TrafficLight.RED);
+
+	public static char getInput() {
+		char input = ' ';
+		Scanner br = new Scanner(System.in);
+		input = br.nextLine().charAt(0);
+		br.close();
+		return input;
+	}
+
+	public static boolean dealWithInput(char ch) {
+    	if(ch == 'Q') {
+    		return true;
+    	} else {
+    		return false;
+    	}	
+	}
+
+	public static void main(String[] args) {
+		
+		boolean stopLight = false;
+		char input = 'R';
+		Scanner br = new Scanner(System.in);
+		int x = 0;
+		
+		System.out.println("Traffic Light Simulator is a Go!");
+
+		
+		do {
+			//run stop light
+//			runStopLight();
+			
+
+			//run the green light
+			Green.run();
+			
+			//run the yellow light
+			Yellow.run();
+			
+			//run the red light
+			Red.run();
+			
+			x++;
+			//input = getInput();
+			//stopLight = dealWithInput(input);
+			
+		//stop when user presses enter
+		}while (x < 10);
+		
+		//tell user the light has stopped
+		System.out.println("Traffic Light Simulator is Done!");
+
+	}
+	
+	static void runStopLight() {
+	
+		//run the green light
+		Yellow.mysuspend();
+		Red.mysuspend();
+		Green.myresume();
+		
+		//run the yellow light
+		Green.mysuspend();
+		Red.mysuspend();
+		Yellow.myresume();
+		
+		//run the red light
+		Yellow.mysuspend();
+		Green.mysuspend();
+		Red.myresume();
+		
+	}
+}

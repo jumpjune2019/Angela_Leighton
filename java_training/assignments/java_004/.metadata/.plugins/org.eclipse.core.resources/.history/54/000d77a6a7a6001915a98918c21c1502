@@ -1,0 +1,44 @@
+package trafficlight;
+
+import java.util.Scanner;
+
+public class MainLight {
+
+	//initialize light threads
+	static MyThread Green = new MyThread(TrafficLight.GREEN);
+	static MyThread Yellow = new MyThread(TrafficLight.YELLOW);
+	static MyThread Red = new MyThread(TrafficLight.RED);
+
+	public static void main(String[] args) {
+		
+		Scanner br = new Scanner(System.in);
+	    String input = br.nextLine();
+		
+		System.out.println("Traffic Light Simulator is a Go!");
+
+		do {
+			//run stop light
+			runStopLight();
+					
+		//stop when user presses enter
+		}while (!input.equals("q"));
+		
+		//tell user the light has stopped
+		System.out.println("Traffic Light Simulator is Done!");
+		
+		//release resources
+		br.close();
+	}
+	
+	static void runStopLight() {
+		
+		//run the green light
+		Green.run();
+		
+		//run the yellow light
+		Yellow.run();
+		
+		//run the red light
+		Red.run();
+	}
+}

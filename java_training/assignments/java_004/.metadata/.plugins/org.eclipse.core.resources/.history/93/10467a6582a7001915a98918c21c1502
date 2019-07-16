@@ -1,0 +1,98 @@
+package genarrayswap;
+
+import java.util.Scanner;
+
+class Array<E> {
+
+	private final Object[] arr;
+	public final int length;
+
+	// constructor
+	public Array(int length)
+	{
+		// Creates a new Object array of specified length
+		arr = new Object[length];
+		this.length = length;
+	}
+
+	// Function to get Object present at index i in the array
+	E get(int i) {
+		@SuppressWarnings("unchecked")
+		final E e = (E)arr[i];
+		return e;
+	}
+
+	// Function to set a value e at index i in the array
+	void set(int i, E e) {
+		arr[i] = e;
+	}
+	
+	void swap(int x, int y, Array<E> e) {
+		int i = 0, j = 0;
+		E tmp, tmp2, tmp3 = null; // created 3 object Es to perform the swap with.
+		for(i = 0; i < e.length; i++) {
+			if(i == x) { 
+				for(j = x; j < e.length; j++) {
+					if(j == y) {
+						tmp = e.get(i);
+						tmp2 = e.get(j);
+						tmp3 = tmp;
+						e.set(j, tmp);
+						e.set(i, tmp2);
+					}
+				}
+			} else if(i == y){
+				for(j = y; j < e.length; j++) {
+					if(j == x) {
+						tmp = e.get(j);
+						tmp2 = e.get(i);
+						tmp3 = tmp;
+						e.set(i, tmp3);
+						e.set(j, tmp2);
+					}
+				}
+			}
+		}
+	}
+}
+
+class Main {
+	// Program to create a generic array in Java
+	public static void main(String[] args)
+	{
+		final int length = 5;
+		Scanner input = new Scanner(System.in);
+		// create an Integer array of given length
+		Array<Integer> intArray = new Array(length);
+		int a = 0, b = 0, j = 0;
+
+		for (int i = 0; i < length; i++) {
+			intArray.set(i, i + 1);
+		}
+		
+		for (int i = 0; i < length; i++) {
+			intArray.get(i);
+			j = (intArray.get(i)).intValue();
+			System.out.println(j);
+		}
+		
+		System.out.println("Select the first element to swap: ");
+		a = input.nextInt();
+		
+		for (int i = 0; i < length; i++) {
+			intArray.get(i);
+			j = (intArray.get(i)).intValue();
+			System.out.println(j);
+		}
+		System.out.println("Select the second element to swap: ");
+		b = input.nextInt();
+		
+		intArray.swap(a, b, intArray);
+		for (int i = 0; i < length; i++) {
+			intArray.get(i);
+			System.out.println("Array index: " + i);
+			j = (intArray.get(i)).intValue();
+			System.out.println(j);
+		}
+	}
+}

@@ -1,0 +1,52 @@
+
+public class Main {
+	public static void main(String args[]) {
+		MyThread mt1 = new MyThread("My Thread");
+		MyThread yt2 = new MyThread("Your Thread");
+		try {
+			Thread.sleep(1000); // let ob1 thread start executing
+			mt1.mysuspend();
+			
+			System.out.println("First Suspending thread.");
+			Thread.sleep(1000);
+			
+			//Set priority to Max
+			mt1.thrd.setPriority(Thread.MAX_PRIORITY);
+			
+			//Set priority to Min
+			yt2.thrd.setPriority(Thread.MIN_PRIORITY);
+			
+//			//Resume thread
+//			mt1.myresume();
+//			System.out.println("Resuming thread.");
+//			
+//			//Suspend thread
+//			Thread.sleep(1000);
+//			mt1.mysuspend();
+//			System.out.println("Suspending thread.");
+//			
+//			//Resume thread
+//			Thread.sleep(1000);
+//			mt1.myresume();
+//			System.out.println("Resuming thread.");
+//			
+//			//Suspend thread
+//			Thread.sleep(1000);
+//			mt1.mysuspend();
+//			
+//			//Stop thread
+//			System.out.println("Stopping thread.");
+//			mt1.mystop();
+			
+		} catch (InterruptedException e) {
+			System.out.println("Main thread Interrupted");
+		}
+		// wait for thread to finish
+		try {
+			mt1.thrd.join();
+		} catch (InterruptedException e) {
+			System.out.println("Main thread Interrupted");
+		}
+		System.out.println("Main thread exiting.");
+	}
+}

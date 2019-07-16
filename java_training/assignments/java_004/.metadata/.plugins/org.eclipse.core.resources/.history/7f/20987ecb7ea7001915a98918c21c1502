@@ -1,0 +1,66 @@
+package trafficlight;
+
+import java.util.Scanner;
+
+class MyThread implements Runnable {
+
+	Thread thrd;
+	boolean suspended;
+	boolean stopped;
+	String name;
+	String label;
+	int wait;
+	static boolean go = true;
+	String userInput = "running";
+	
+	// Construct a new thread.
+	MyThread(TrafficLight light) {
+		
+		this.name = light.name();
+		this.label = light.getLabel();
+		this.wait = light.getTime();
+		
+		suspended = false;
+		stopped = false;
+		
+	}
+	
+	//begin execution of new thread
+	public void run() {
+		System.out.println(this.label);		
+		try {
+			Thread.sleep(this.wait);
+	
+			System.out.println(this.name);
+			if (thrd.getName() == "LISTEN") {	
+				Scanner sc = new Scanner(System.in);
+				userInput = sc.nextLine();
+				if(!userInput.equals(null)) {
+					mystop();
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//stop threads
+	synchronized void mystop() {
+		go = false;
+		System.out.println("Traffic light simulator is DONE!");
+		System.exit(0);
+	}
+	
+	//suspend the thread
+	synchronized void mysuspend() {
+		suspended = true;	
+	}
+	
+	//resume the thread
+	synchronized void myresume() {
+		suspended = false;
+		notify();
+	}
+}

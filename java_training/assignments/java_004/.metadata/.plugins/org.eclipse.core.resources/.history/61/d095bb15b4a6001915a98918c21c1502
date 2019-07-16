@@ -1,0 +1,61 @@
+package trafficlight;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.Scanner;
+
+public class MainLight {
+
+	public static void main(String[] args) throws IOException {
+		
+	    String input = "";
+	    Scanner s = new Scanner(System.in);
+	    
+	    //declare the BufferedReader Class
+	 	BufferedReader reader = new BufferedReader(new StringReader(s.nextLine()));
+		
+		System.out.println("Traffic Light Simulator is a Go!");
+
+		while (input.equals("")){
+			//run stop light
+			runStopLight();
+		
+			//check if stream is ready to be read			
+			if(reader.ready()){
+				if (s.hasNext()) {
+					input = s.nextLine();  
+				} else {
+					input = null;
+				}
+			}
+					
+		//stop when user presses enter
+		}
+		
+		//tell user the light has stopped
+		System.out.println("Traffic Light Simulator is Done!");
+		
+		//release resources
+		s.close();
+		reader.close();
+		System.exit(0);
+	}
+	
+	static void runStopLight() {
+
+		//initialize light threads
+		MyThread Green = new MyThread(TrafficLight.GREEN);
+		MyThread Yellow = new MyThread(TrafficLight.YELLOW);
+		MyThread Red = new MyThread(TrafficLight.RED);
+		
+		//run the green light
+		Green.run();
+		
+		//run the yellow light
+		Yellow.run();
+		
+		//run the red light
+		Red.run();
+	}
+}

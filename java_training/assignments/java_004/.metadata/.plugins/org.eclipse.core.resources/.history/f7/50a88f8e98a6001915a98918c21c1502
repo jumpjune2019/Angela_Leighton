@@ -1,0 +1,21 @@
+package trafficlight;
+
+enum TrafficLight {
+	RED(3,"Light is Red - Stop!"), GREEN(5, "Light is Green - Go!"), YELLOW(2, "Light is Yellow - Beware!");
+	private int waitTime; //how long each light lasts
+	private String label; //what the light says
+
+	//constructor
+	TrafficLight(int w, String l){
+		waitTime = w;
+		label = l;
+	}
+	
+	int getTime() {
+		return waitTime;
+	}
+	
+	String getLabel() {
+		return label;
+	}
+}

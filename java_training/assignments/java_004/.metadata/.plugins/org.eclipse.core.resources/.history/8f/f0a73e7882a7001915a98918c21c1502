@@ -1,0 +1,21 @@
+package genarrayswap;
+
+import java.util.*;
+
+public class MainArray {
+	
+	public static void main(String[] args) {
+	
+		String[] wines = {"Pinot Noir", "Pinot Grigio", "Chardonnay", "Sangria", "Cabernet Sauvignon"};
+		
+		List<String> something = new ArrayList<String>(Arrays.asList(wines));
+		
+		
+		
+		//swapping strings
+		System.out.println("The first list is: " + Arrays.toString(wines));
+		GenArraySwap.swap(something, 0, 4);
+		System.out.println("Swap 'Pinot Noir' and 'Cabernet Sauvignon': " + something);
+	}
+
+}

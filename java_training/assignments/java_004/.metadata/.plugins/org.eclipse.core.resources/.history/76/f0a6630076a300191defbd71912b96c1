@@ -1,0 +1,127 @@
+import java.util.Scanner;
+
+public class ThreadOne {
+
+	public static void main(String[] args) {
+		
+		MyThread mt1 = new MyThread("Thread One");
+		MyThread mt2 = new MyThread("Thread Two");
+		MyThread mt3 = new MyThread("Thread Three");
+		MyThread mt4 = new MyThread("Thread Four");
+		MyThread mt5 = new MyThread("Thread Five");
+		
+		//initialize controlThread
+		String controlThread = "0";
+		
+		System.out.println("Enter P to PAUSE thread");
+		System.out.println("Enter S to STOP thread");
+		
+		Scanner userInput = new Scanner(System.in);
+		String control = "";
+		
+		do 
+		{	
+			//get userInput
+			control = userInput.nextLine();
+			
+			if (control == "1" || control == "2" || control == "3" || control == "4" || control == "5" ) {
+				if (controlThread == "0") {
+					//set control thread
+					controlThread =  control;
+					System.out.println("Controlling thread " + control);
+				}
+				else if(control == controlThread)
+					//controlThread is set already toggle the thread
+					switch (controlThread) {
+					case "1":
+						//if thread is alive and suspended resume thread
+						if (mt1.thrd.isAlive() & mt1.suspended) {
+							resumeThread(mt1);
+						}
+						//if thread is alive and running suspend thread
+						else if (mt1.thrd.isAlive() & !mt1.suspended) {
+							pauseThread(mt1);
+						}
+						break;
+						
+					case "2":
+						//if thread is alive and suspended resume thread
+						if (mt2.thrd.isAlive() & mt2.suspended) {
+							resumeThread(mt2);
+						}
+						//if thread is alive and running suspend thread
+						else if (mt2.thrd.isAlive() & !mt2.suspended) {
+							pauseThread(mt2);
+						}
+						break;
+					case "3":
+						//if thread is alive and suspended resume thread
+						if (mt3.thrd.isAlive() & mt3.suspended) {
+							resumeThread(mt3);
+						}
+						//if thread is alive and running suspend thread
+						else if (mt3.thrd.isAlive() & !mt3.suspended) {
+							pauseThread(mt3);
+						}
+						break;
+						
+					case "4":
+						//if thread is alive and suspended resume thread
+						if (mt4.thrd.isAlive() & mt4.suspended) {
+							resumeThread(mt4);
+						}
+						//if thread is alive and running suspend thread
+						else if (mt4.thrd.isAlive() & !mt4.suspended) {
+							pauseThread(mt4);
+						}
+						break;
+						
+					case "5":
+						//if thread is alive and suspended resume thread
+						if (mt5.thrd.isAlive() & mt5.suspended) {
+							resumeThread(mt5);
+						}
+						//if thread is alive and running suspend thread
+						else if (mt5.thrd.isAlive() & !mt5.suspended) {
+							pauseThread(mt5);
+						}
+						break;
+						
+					default:
+						break;
+					}
+				}
+		
+			if (control.equalsIgnoreCase("P")) {
+				pauseThread(mt1);
+			}
+			
+			if (control.equalsIgnoreCase("S")) {
+				stopThread(mt1);
+			}
+		}
+		while(mt1.thrd.isAlive() || mt2.thrd.isAlive() || mt3.thrd.isAlive() || mt4.thrd.isAlive() || mt5.thrd.isAlive());
+		
+		//release resources
+		userInput.close();
+	}
+	
+	static void stopThread(MyThread myThread) {
+		
+		//Stop thread
+		myThread.mystop();
+
+	}
+	
+	static void pauseThread(MyThread myThread) {
+
+		//Suspend thread
+		myThread.mysuspend();
+	}
+	
+	static void resumeThread(MyThread myThread) {
+ 
+		//Resume thread
+		myThread.myresume();
+	}
+}
